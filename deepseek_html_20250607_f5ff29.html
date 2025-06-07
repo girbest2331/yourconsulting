@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOURCONSULTING - Expertise Comptable & Conseil Fiscal | Rabat, Maroc</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af',
+                        secondary: '#3b82f6',
+                        accent: '#059669',
+                        dark: '#1f2937',
+                        light: '#f1f5f9',
+                        lighter: '#e2e8f0'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .logo-bg {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+        }
+        .btn-primary {
+            background: linear-gradient(to right, #059669, #047857);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(5, 150, 105, 0.3);
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: scale(1.03);
+        }
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+            transform: translateX(150%);
+            transition: transform 0.4s ease-in-out;
+        }
+        .notification.show {
+            transform: translateX(0);
+        }
+        .notification.success {
+            background: linear-gradient(to right, #059669, #047857);
+        }
+        .notification.error {
+            background: linear-gradient(to right, #ef4444, #dc2626);
+        }
+    </style>
+</head>
+<body class="font-sans text-dark bg-gray-50">
+    <div id="notification" class="notification hidden"></div>
+
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="logo-bg text-white font-bold text-xl px-3 py-2 rounded mr-2">YC</div>
+                <span class="font-bold text-xl text-primary">YOUR<span class="text-secondary">CONSULTING</span></span>
+            </div>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#accueil" class="font-medium hover:text-primary transition">Accueil</a>
+                <a href="#expertise" class="font-medium hover:text-primary transition">Expertise</a>
+                <a href="#services" class="font-medium hover:text-primary transition">Services</a>
+                <a href="#temoignages" class="font-medium hover:text-primary transition">Témoignages</a>
+                <a href="#faq" class="font-medium hover:text-primary transition">FAQ</a>
+                <a href="#contact" class="font-medium hover:text-primary transition">Contact</a>
+            </div>
+            
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-primary focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 border-t">
+            <div class="flex flex-col space-y-3">
+                <a href="#accueil" class="font-medium hover:text-primary transition">Accueil</a>
+                <a href="#expertise" class="font-medium hover:text-primary transition">Expertise</a>
+                <a href="#services" class="font-medium hover:text-primary transition">Services</a>
+                <a href="#temoignages" class="font-medium hover:text-primary transition">Témoignages</a>
+                <a href="#faq" class="font-medium hover:text-primary transition">FAQ</a>
+                <a href="#contact" class="font-medium hover:text-primary transition">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="accueil" class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-r from-primary to-secondary">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Expertise Comptable & Conseil Fiscal de Confiance</h1>
+                <p class="text-xl text-white mb-2">Kamal Eddine Al MORABITI, Comptable Agréé & Fiscaliste</p>
+                <div class="flex items-center mb-6">
+                    <i class="fas fa-map-marker-alt text-white mr-2"></i>
+                    <p class="text-white">379, BD MED V APPT N°: 1 BIS, RABAT</p>
+                </div>
+                <a href="#contact" class="btn-primary inline-block text-white font-bold py-3 px-8 rounded-lg transition shadow-lg">Prendre Rendez-vous</a>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-96 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Expertise comptable" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg">
+                        <div class="flex items-center">
+                            <div class="bg-primary text-white p-2 rounded-full mr-3">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold">Comptable Agréé</p>
+                                <p class="text-sm text-gray-600">Depuis 2010</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="expertise" class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Notre Expertise</h2>
+                <div class="h-1 w-24 bg-accent mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center">
+                    <div class="bg-gray-200 border-2 border-dashed rounded-xl w-64 h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Kamal Eddine Al MORABITI" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                
+                <div class="md:w-2/3 md:pl-16">
+                    <h3 class="text-2xl font-bold mb-4">Kamal Eddine Al MORABITI</h3>
+                    <p class="text-lg text-secondary mb-2">Comptable Agréé & Fiscaliste</p>
+                    <p class="mb-6">Fondateur du cabinet YOURCONSULTING, je mets à votre service plus de 15 ans d'expérience en expertise comptable et conseil fiscal au Maroc. Diplômé de l'Institut Supérieur de Commerce et d'Administration des Entreprises (ISCAE) et titulaire du Diplôme de Comptabilité et de Gestion (DCG), j'accompagne les entreprises dans leur développement financier.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="flex">
+                            <div class="text-accent mr-4 mt-1">
+                                <i class="fas fa-graduation-cap text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Formation</h4>
+                                <p>Diplôme d'Expertise Comptable (DEC), DCG, Diplôme Supérieur de Comptabilité et Gestion</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="text-accent mr-4 mt-1">
+                                <i class="fas fa-briefcase text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Expérience</h4>
+                                <p>15+ ans dans l'expertise comptable et le conseil fiscal pour entreprises marocaines</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="text-accent mr-4 mt-1">
+                                <i class="fas fa-chart-line text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Spécialisations</h4>
+                                <p>Fiscalité des entreprises, optimisation fiscale, audit financier, droit des affaires</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="text-accent mr-4 mt-1">
+                                <i class="fas fa-users text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Clients</h4>
+                                <p>PME, startups, entreprises familiales, filiales de groupes internationaux</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Nos Services</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Des solutions complètes adaptées aux besoins des entreprises marocaines de toutes tailles</p>
+                <div class="h-1 w-24 bg-accent mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card bg-light rounded-xl p-6 shadow-md transition duration-300">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Expertise Comptable</h3>
+                    <p class="mb-4">Tenue de comptabilité complète, établissement des états financiers, clôture annuelle, conseil en organisation comptable.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-2"></i>
+                            Comptabilité générale et analytique
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-2"></i>
+                            Établissement des bilans et comptes de résultat
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-2"></i>
+                            Paie et déclarations sociales
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="service-card bg-light rounded-xl p-6 shadow-md transition duration-300">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Conseil Fiscal</h3>
+                    <p class="mb-4">Optimisation fiscale, préparation des déclarations fiscales, assistance lors des contrôles, conseil en taxation.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-2"></i>
+                            Déclarations TVA, IR, IS
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-2"></i>
+                            Optimisation de la taxe professionnelle
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-2"></i>
+                            Conseil en fiscalité internationale
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="service-card bg-light rounded-xl p-6 shadow-md transition duration-300">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fas fa-search-dollar"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Audit & Contrôle</h3>
+                    <p class="mb-4">Missions d'audit légal et contractuel, contrôle interne, due diligence, certification des comptes.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-2"></i>
+                            Audit financier réglementaire
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-2"></i>
+                            Évaluation des processus internes
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-2"></i>
+                            Assistance à la certification des comptes
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="service-card bg-light rounded-xl p-6 shadow-md transition duration-300">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Conseil en Gestion</h3>
+                    <p class="mb-4">Analyse financière, tableaux de bord, business plan, diagnostic financier, conseil en performance.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-2"></i>
+                            Analyse de la performance financière
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-2"></i>
+                            Élaboration de business plans
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-2"></i>
+                            Mise en place de tableaux de bord
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="service-card bg-light rounded-xl p-6 shadow-md transition duration-300">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Formation Professionnelle</h3>
+                    <p class="mb-4">Formations adaptées aux professionnels en fiscalité, comptabilité et gestion d'entreprise.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-2"></i>
+                            Fiscalité marocaine (TVA, IR, IS)
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-2"></i>
+                            Gestion de la taxe professionnelle
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-2"></i>
+                            Ateliers pratiques de comptabilité
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="service-card bg-light rounded-xl p-6 shadow-md transition duration-300">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Accompagnement Juridique</h3>
+                    <p class="mb-4">Conseil en droit des affaires, création d'entreprise, rédaction de contrats, conseil juridique.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-2"></i>
+                            Constitution de sociétés
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-2"></i>
+                            Rédaction de contrats commerciaux
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-2"></i>
+                            Conseil en droit des sociétés
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="temoignages" class="py-16 bg-lighter">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Ce que disent nos clients</h2>
+                <div class="h-1 w-24 bg-accent mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="testimonial-card bg-white rounded-xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-accent text-2xl mr-3">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="mb-6 italic">"Le cabinet YOURCONSULTING nous accompagne depuis la création de notre startup à Rabat. Leur expertise fiscale nous a permis d'économiser des milliers de dirhams dès la première année. Un professionnalisme remarquable."</p>
+                    <div class="flex items-center">
+                        <div class="bg-gray-200 border-2 border-dashed rounded-xl w-12 h-12 mr-4"></div>
+                        <div>
+                            <p class="font-bold">Karim BENJELLOUN</p>
+                            <p class="text-sm text-gray-600">CEO, TechSolutions Maroc</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-white rounded-xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-accent text-2xl mr-3">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="mb-6 italic">"M. Al MORABITI a transformé notre gestion financière. Grâce à ses conseils stratégiques et son expertise comptable, notre PME familiale a pu doubler son chiffre d'affaires en 3 ans. Un partenaire indispensable."</p>
+                    <div class="flex items-center">
+                        <div class="bg-gray-200 border-2 border-dashed rounded-xl w-12 h-12 mr-4"></div>
+                        <div>
+                            <p class="font-bold">Fatima ZAHIR</p>
+                            <p class="text-sm text-gray-600">Directrice, Zahir Textiles</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-white rounded-xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-accent text-2xl mr-3">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="mb-6 italic">"La formation sur la taxe professionnelle que nous avons suivie chez YOURCONSULTING était exceptionnelle. Des explications claires sur des sujets complexes. Nous recommandons vivement leurs services à toutes les entreprises de Rabat."</p>
+                    <div class="flex items-center">
+                        <div class="bg-gray-200 border-2 border-dashed rounded-xl w-12 h-12 mr-4"></div>
+                        <div>
+                            <p class="font-bold">Hassan EL FASSI</p>
+                            <p class="text-sm text-gray-600">Responsable Financier, Groupe Almadar</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Questions Fréquentes</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Trouvez les réponses aux questions les plus courantes sur nos services</p>
+                <div class="h-1 w-24 bg-accent mx-auto mt-4"></div>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="border-b border-lighter py-4">
+                    <button class="faq-btn w-full flex justify-between items-center font-bold text-lg">
+                        <span>Quels sont vos domaines d'expertise ?</span>
+                        <i class="fas fa-chevron-down text-primary"></i>
+                    </button>
+                    <div class="faq-content mt-3 pl-2 hidden">
+                        <p class="text-gray-600">Nous couvrons tous les aspects de la comptabilité, fiscalité, audit et conseil en gestion. Nos spécialités incluent l'optimisation fiscale, l'audit financier, la tenue de comptabilité complète, la préparation des états financiers et le conseil stratégique aux entreprises.</p>
+                    </div>
+                </div>
+                
+                <div class="border-b border-lighter py-4">
+                    <button class="faq-btn w-full flex justify-between items-center font-bold text-lg">
+                        <span>Travaillez-vous avec les PME ?</span>
+                        <i class="fas fa-chevron-down text-primary"></i>
+                    </button>
+                    <div class="faq-content mt-3 pl-2 hidden">
+                        <p class="text-gray-600">Absolument. Nous accompagnons les entreprises de toutes tailles, des startups aux PME établies. Nous proposons des solutions adaptées et des forfait spécifiques pour répondre aux besoins des petites et moyennes entreprises marocaines.</p>
+                    </div>
+                </div>
+                
+                <div class="border-b border-lighter py-4">
+                    <button class="faq-btn w-full flex justify-between items-center font-bold text-lg">
+                        <span>Proposez-vous des formations ?</span>
+                        <i class="fas fa-chevron-down text-primary"></i>
+                    </button>
+                    <div class="faq-content mt-3 pl-2 hidden">
+                        <p class="text-gray-600">Oui, nous organisons régulièrement des formations professionnelles, notamment en fiscalité marocaine, gestion de la taxe professionnelle, et maîtrise des logiciels comptables. Nos formations sont adaptées aux besoins spécifiques de votre entreprise.</p>
+                    </div>
+                </div>
+                
+                <div class="border-b border-lighter py-4">
+                    <button class="faq-btn w-full flex justify-between items-center font-bold text-lg">
+                        <span>Où êtes-vous situés ?</span>
+                        <i class="fas fa-chevron-down text-primary"></i>
+                    </button>
+                    <div class="faq-content mt-3 pl-2 hidden">
+                        <p class="text-gray-600">Notre cabinet est situé au 379, BD MED V, Appartement N°: 1 BIS à Rabat, facilement accessible depuis tout le Grand Rabat. Nous proposons également des consultations à distance pour les clients de tout le Maroc et à l'international.</p>
+                    </div>
+                </div>
+                
+                <div class="border-b border-lighter py-4">
+                    <button class="faq-btn w-full flex justify-between items-center font-bold text-lg">
+                        <span>Comment prendre rendez-vous ?</span>
+                        <i class="fas fa-chevron-down text-primary"></i>
+                    </button>
+                    <div class="faq-content mt-3 pl-2 hidden">
+                        <p class="text-gray-600">Vous pouvez nous contacter par téléphone au <span class="font-semibold">+212 661 335828</span>, par email à <span class="font-semibold">yourconsulting1@gmail.com</span>, ou utiliser notre formulaire de contact en ligne. Nous vous répondrons dans les plus brefs délais pour convenir d'un rendez-vous à votre convenance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Contactez-nous</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Prêt à optimiser votre gestion financière? Prenez rendez-vous avec notre équipe</p>
+                <div class="h-1 w-24 bg-accent mx-auto mt-4"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row">
+                <div class="lg:w-2/5 mb-10 lg:mb-0">
+                    <div class="bg-white rounded-xl p-8 shadow-md">
+                        <div class="flex items-center mb-8">
+                            <div class="bg-primary text-white p-3 rounded-full mr-4">
+                                <i class="fas fa-user-tie text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-xl">Kamal Eddine Al MORABITI</h3>
+                                <p class="text-secondary">Comptable Agréé & Fiscaliste</p>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <div class="flex">
+                                <div class="text-primary text-xl mr-4">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Cabinet</h4>
+                                    <p>YOURCONSULTING</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex">
+                                <div class="text-primary text-xl mr-4">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Adresse</h4>
+                                    <p>379, BD MED V APPT N°: 1 BIS<br>RABAT, Maroc</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex">
+                                <div class="text-primary text-xl mr-4">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Email</h4>
+                                    <p>yourconsulting1@gmail.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex">
+                                <div class="text-primary text-xl mr-4">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Téléphone</h4>
+                                    <p>+212 661 335828</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-bold mb-4">Heures d'ouverture</h4>
+                            <div class="flex justify-between border-b border-lighter py-2">
+                                <span>Lundi - Vendredi</span>
+                                <span class="font-bold">8h30 - 18h30</span>
+                            </div>
+                            <div class="flex justify-between py-2">
+                                <span>Samedi</span>
+                                <span class="font-bold">9h00 - 13h00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-3/5 lg:pl-16">
+                    <div class="bg-white rounded-xl p-8 shadow-md">
+                        <h3 class="text-xl font-bold mb-6">Envoyez-nous un message</h3>
+                        <form id="contact-form">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label class="block text-gray-700 mb-2" for="name">Nom complet</label>
+                                    <input type="text" id="name" class="w-full px-4 py-3 border border-lighter rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 mb-2" for="email">Email</label>
+                                    <input type="email" id="email" class="w-full px-4 py-3 border border-lighter rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label class="block text-gray-700 mb-2" for="phone">Téléphone</label>
+                                    <input type="tel" id="phone" class="w-full px-4 py-3 border border-lighter rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 mb-2" for="subject">Sujet</label>
+                                    <select id="subject" class="w-full px-4 py-3 border border-lighter rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                                        <option value="">Sélectionnez un sujet</option>
+                                        <option value="comptabilite">Expertise Comptable</option>
+                                        <option value="fiscalite">Conseil Fiscal</option>
+                                        <option value="audit">Audit & Contrôle</option>
+                                        <option value="gestion">Conseil en Gestion</option>
+                                        <option value="formation">Formation Professionnelle</option>
+                                        <option value="juridique">Accompagnement Juridique</option>
+                                        <option value="autre">Autre demande</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="block text-gray-700 mb-2" for="message">Message</label>
+                                <textarea id="message" rows="5" class="w-full px-4 py-3 border border-lighter rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn-primary w-full text-white font-bold py-3 px-6 rounded-lg transition">Envoyer le message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="logo-bg text-white font-bold text-xl px-3 py-2 rounded mr-2">YC</div>
+                        <span class="font-bold text-xl">YOUR<span class="text-secondary">CONSULTING</span></span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Cabinet d'expertise comptable et de conseil fiscal à Rabat, Maroc.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Liens Rapides</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#accueil" class="text-gray-400 hover:text-white transition">Accueil</a></li>
+                        <li><a href="#expertise" class="text-gray-400 hover:text-white transition">Notre Expertise</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="#temoignages" class="text-gray-400 hover:text-white transition">Témoignages</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Nos Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Expertise Comptable</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Conseil Fiscal</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Audit & Contrôle</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Conseil en Gestion</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Formation Professionnelle</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Contact</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-gray-400 mt-1 mr-3"></i>
+                            <span class="text-gray-400">379, BD MED V APPT N°: 1 BIS<br>RABAT, Maroc</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt text-gray-400 mt-1 mr-3"></i>
+                            <span class="text-gray-400">+212 661 335828</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-gray-400 mt-1 mr-3"></i>
+                            <span class="text-gray-400">yourconsulting1@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 YOURCONSULTING. Tous droits réservés. | Cabinet d'expertise comptable agréé à Rabat, Maroc</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const notification = document.getElementById('notification');
+            
+            menuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            const faqBtns = document.querySelectorAll('.faq-btn');
+            faqBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('i');
+                    
+                    if (content.classList.contains('hidden')) {
+                        content.classList.remove('hidden');
+                        icon.classList.replace('fa-chevron-down', 'fa-chevron-up');
+                    } else {
+                        content.classList.add('hidden');
+                        icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+                    }
+                });
+            });
+            
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const phone = document.getElementById('phone').value;
+                    const subject = document.getElementById('subject').value;
+                    const message = document.getElementById('message').value;
+                    
+                    if (name && email && phone && subject && message) {
+                        // Créer le lien mailto avec les informations du formulaire
+                        const mailtoLink = `mailto:yourconsulting1@gmail.com?subject=Message de ${encodeURIComponent(name)} - Sujet: ${encodeURIComponent(subject)}&body=Nom: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0ATéléphone: ${encodeURIComponent(phone)}%0A%0AMessage:%0A${encodeURIComponent(message)}`;
+                        
+                        // Ouvrir le client de messagerie par défaut
+                        window.location.href = mailtoLink;
+                        
+                        // Afficher une notification de confirmation
+                        showNotification('Votre message a été envoyé avec succès!', 'success');
+                        
+                        // Réinitialiser le formulaire
+                        contactForm.reset();
+                    } else {
+                        showNotification('Veuillez remplir tous les champs obligatoires', 'error');
+                    }
+                });
+            }
+            
+            // Fonction pour afficher les notifications
+            function showNotification(text, type) {
+                notification.textContent = text;
+                notification.className = `notification ${type} show`;
+                
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 5000);
+            }
+            
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
